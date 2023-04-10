@@ -6,7 +6,8 @@ class Tank : ICloneable
     public string Name
     {
         get => _name;
-        set => _name = (String.IsNullOrEmpty(value) || String.IsNullOrWhiteSpace(value) ? "без назви" : value);
+        set => _name = (String.IsNullOrEmpty(value) 
+                        || String.IsNullOrWhiteSpace(value) ? "без назви" : value);
     }
 
     private int _strength;
@@ -79,14 +80,16 @@ internal static class Program
 
         Tank NotEmpty = (Tank)Empty.Clone();
 
-        Console.WriteLine($"оригінал танку:\n\n{Empty}" +
+        Console.WriteLine($"ОРИГІНАЛ ТАНКУ:\n{Empty}" +
                           $"\n\n//--//--//\n//--//--//" +
-                          $"\n\nкопія танку до зміни ім'я:\n\n{NotEmpty}");
+                          $"\n\nКОПІЯ ТАНКУ ДО ЗМІНИ ІМ'Я:\n{NotEmpty}");
 
         NotEmpty.Name = "з назвою";
 
         Console.WriteLine($"\n//--//--//\n//--//--//" +
-                          $"\n\nкопія танку після зміни ім'я:\n\n{NotEmpty}");
+                          $"\n\nКОПІЯ ТАНКУ ПІСЛЯ ЗМІНИ ІМ'Я:\n{NotEmpty}" +
+                          $"\n\n//--//--//\n//--//--//" +
+                          $"\n\nОРИГІНАЛ ТАНКУ:\n{Empty}");
 
     }
 }
